@@ -14,7 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[AuthController::class,'login']);
+//auth controller
+Route::controller(AuthController::class)->group(function(){
+
+    Route::get('/','login');
+    Route::post('login','AuthLogin');
+    Route::get('logout','AuthLogout');
+});
+
 
 Route::get('admin-home',function(){
 
