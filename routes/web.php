@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,30 +35,18 @@ Route::get('admin-home/admin/all', function(){
 
 //middleware
 Route::group(['middleware' => 'admin'], function(){
-    Route::get('admin-home',function(){
-
-        return view('admin-home.dashboard');
-    });
+    Route::get('admin-home',[DashboardController::class,'dashboard']);
     
 });
 Route::group(['middleware' => 'teacher'], function(){
-    Route::get('admin-home/teacher',function(){
-
-        return view('admin-home.dashboard');
-    });
+    Route::get('admin-home/teacher',[DashboardController::class,'dashboard']);
     
 });
 Route::group(['middleware' => 'parent'], function(){
-    Route::get('admin-home/parent',function(){
-
-        return view('admin-home.dashboard');
-    });
+    Route::get('admin-home/parent',[DashboardController::class,'dashboard']);
     
 });
 Route::group(['middleware' => 'student'], function(){
-    Route::get('admin-home/student',function(){
-
-        return view('admin-home.dashboard');
-    });
+    Route::get('admin-home/student',[DashboardController::class,'dashboard']);
     
 });
