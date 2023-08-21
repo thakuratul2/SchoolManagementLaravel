@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-use Hash;
+use App\Models\User;
 use Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Mail\ForgotPasswordMail;
+use Mail;
+use Str;
 
 class AuthController extends Controller
 {
@@ -56,6 +59,26 @@ class AuthController extends Controller
         }
     }
 
+    public function forgotpassword(){
+
+        return view('Auth.forgot');
+    }
+
+    public function Postforgotpassword(Request $req){
+
+        $getEmailSingle = User::getEmailSingle($req->email);
+
+        if(!empty($user)){
+
+            $user->remember_token = Str::random(30);
+            $user->save();
+            Mail::to($user->email)->send(new ForgotPasswordMail($user));
+            return redirect()->back()-with('success','Password Change!!!');
+
+        }else{
+            return redirect()->back()-with('error','Check Email!!!');
+        }
+    }
     public function AuthLogout(){
 
         Auth::logout();
