@@ -73,10 +73,10 @@ class AuthController extends Controller
             $user->remember_token = Str::random(30);
             $user->save();
             Mail::to($user->email)->send(new ForgotPasswordMail($user));
-            return redirect()->back()-with('success','Password Change!!!');
+            return redirect()->back()->with('success','Password Change!!!');
 
         }else{
-            return redirect()->back()-with('error','Check Email!!!');
+            return redirect()->back()->with('error','Wrong Email!!!');
         }
     }
     public function AuthLogout(){
