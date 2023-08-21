@@ -22,6 +22,7 @@ Route::controller(AuthController::class)->group(function(){
     
     Route::post('login','AuthLogin');
     Route::get('logout','AuthLogout');
+    Route::get('forgot-password','forgotpassword');
 });
 
 
