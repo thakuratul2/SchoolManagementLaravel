@@ -185,7 +185,7 @@
           </li>
           
           <li class="nav-item">
-            <a href="#" class="nav-link @if(Request::segment(2) == 'teacher') active @endif">
+            <a href="#" class="nav-link @if(Request::segment(2) == 'admin') active @endif">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Teacher Role Manage
