@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -33,13 +34,15 @@ Route::get('admin-home',function(){
     return view('admin-home.dashboard');
 });
 
-Route::get('admin-home/admin/all', function(){
-    return view('admin-home.admin.all');
-});
+
 
 //middleware
 Route::group(['middleware' => 'admin'], function(){
     Route::get('admin-home',[DashboardController::class,'dashboard']);
+    Route::get('admin-home/admin/all',[AdminController::class,'list']);
+    Route::get('admin-home/admin/new',[AdminController::class,'add']);
+    Route::post('admin-home/admin/new',[AdminController::class,'insert']);
+    //return view('admin-home.admin.add-admin',[AdminController::class,'list']);
     
 });
 Route::group(['middleware' => 'teacher'], function(){

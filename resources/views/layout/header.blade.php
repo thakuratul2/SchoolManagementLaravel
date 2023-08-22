@@ -158,7 +158,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="{{url('admin-home/admin/new')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add New Admin</p>
                 </a>
