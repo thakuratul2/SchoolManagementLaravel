@@ -27,7 +27,7 @@ class AdminController extends Controller
         $user->name  = trim($req->name);
         $user->email = trim($req->email);
         $user->password = Hash::make($req->password);
-
+        $user->user_type = 1;
         $user->save();
 
         return redirect('admin-home/admin/all')->with('success','Admin Created!!!');
