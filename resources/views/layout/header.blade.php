@@ -131,7 +131,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           @if (Auth::user()->user_type == 1)
           <li class="nav-item menu-open">
-            <a href="{{url('admin-home')}}" class="nav-link">
+            <a href="{{url('admin-home')}}" class="nav-link @if(Request::segment(2) == 'dashboard') active @endif">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -142,7 +142,7 @@
           </li>
           
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link @if(Request::segment(2) == 'admin') active @endif">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Admin Role Manage
@@ -174,7 +174,7 @@
           </li>
           @elseif (Auth::user()->user_type == 2)
           <li class="nav-item menu-open">
-            <a href="{{url('admin-home')}}" class="nav-link">
+            <a href="{{url('admin-home')}}" class="nav-link @if(Request::segment(2) == 'dashboard') active @endif">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -185,10 +185,10 @@
           </li>
           
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link @if(Request::segment(2) == 'teacher') active @endif">
               <i class="nav-icon fas fa-user"></i>
               <p>
-                Admin Role Manage
+                Teacher Role Manage
                 <i class="fas fa-angle-left right"></i>
                 
               </p>
@@ -201,7 +201,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="pages/layout/top-nav-sidebar.html" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add New Admin</p>
                 </a>
@@ -217,7 +217,7 @@
           </li>
           @elseif (Auth::user()->user_type == 3)
           <li class="nav-item menu-open">
-            <a href="{{url('admin-home')}}" class="nav-link">
+            <a href="{{url('admin-home')}}" class="nav-link @if(Request::segment(2) == 'dashboard') active @endif">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -228,7 +228,7 @@
           </li>
           @elseif (Auth::user()->user_type == 4)
           <li class="nav-item menu-open">
-            <a href="{{url('admin-home')}}" class="nav-link">
+            <a href="{{url('admin-home')}}" class="nav-link @if(Request::segment(2) == 'dashboard') active @endif">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
