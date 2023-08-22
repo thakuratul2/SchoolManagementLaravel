@@ -157,19 +157,19 @@
                   <p>All Admin</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="{{url('admin-home/admin/new')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add New Admin</p>
-                </a>
-              </li>
+              
               <li class="nav-item">
                 <a href="pages/layout/boxed.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All Admin Role</p>
                 </a>
               </li>
-              
+              <li class="nav-item">
+                <a href="{{url('admin-home/admin/new')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add New Admin</p>
+                </a>
+              </li>
             </ul>
           </li>
           @elseif (Auth::user()->user_type == 2)

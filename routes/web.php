@@ -43,7 +43,8 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('admin-home/admin/new',[AdminController::class,'add']);
     Route::post('admin-home/admin/new',[AdminController::class,'insert']);
     //return view('admin-home.admin.add-admin',[AdminController::class,'list']);
-    
+    Route::get('admin-home/admin/edit/{id}',[AdminController::class,'edit']);
+    Route::get('admin-home/admin/delete/{id}',[AdminController::class,'delete']);
 });
 Route::group(['middleware' => 'teacher'], function(){
     Route::get('admin-home/teacher',[DashboardController::class,'dashboard']);

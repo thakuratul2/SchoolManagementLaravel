@@ -12,12 +12,13 @@ class AdminController extends Controller
     //
     public function list(){
         
-    
-        return view('admin-home.admin.all');
+        $data['getRecord'] = User::getAdmin();
+        return view('admin-home.admin.all',$data);
     }
 
     public function add(){
 
+        
         return view('admin-home.admin.add-admin');
     }
 
@@ -31,5 +32,9 @@ class AdminController extends Controller
         $user->save();
 
         return redirect('admin-home/admin/all')->with('success','Admin Created!!!');
+    }
+
+    public function edit($id){
+        
     }
 }
