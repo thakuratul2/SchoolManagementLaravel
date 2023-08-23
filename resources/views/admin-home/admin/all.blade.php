@@ -40,6 +40,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Created At</th>
+                    <th>Updated At</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -59,8 +60,11 @@
                           {{$value->created_at}}
                         </td>
                         <td>
-                          <a href="{{url('admin-home/admin/edit/'. $value->id)}}" class="btn btn-primary">Edit</a>
-                          <a href="{{url('admin-home/admin/delete/'. $value->id)}}" class="btn btn-danger">Delete</a>
+                          {{$value->updated_at}}
+                        </td>
+                        <td>
+                          <a href="{{url('admin-home/admin/edit/'. $value->id)}}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
+                          <a href="{{url('admin-home/admin/delete/'. $value->id)}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                         </td>
                       </tr>
                   @endforeach

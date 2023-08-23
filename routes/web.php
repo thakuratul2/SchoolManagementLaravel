@@ -29,11 +29,6 @@ Route::controller(AuthController::class)->group(function(){
 });
 
 
-Route::get('admin-home',function(){
-
-    return view('admin-home.dashboard');
-});
-
 
 
 //middleware
@@ -44,6 +39,7 @@ Route::group(['middleware' => 'admin'], function(){
     Route::post('admin-home/admin/new',[AdminController::class,'insert']);
     //return view('admin-home.admin.add-admin',[AdminController::class,'list']);
     Route::get('admin-home/admin/edit/{id}',[AdminController::class,'edit']);
+    Route::post('admin-home/admin/edit/{id}',[AdminController::class,'update']);
     Route::get('admin-home/admin/delete/{id}',[AdminController::class,'delete']);
 });
 Route::group(['middleware' => 'teacher'], function(){
