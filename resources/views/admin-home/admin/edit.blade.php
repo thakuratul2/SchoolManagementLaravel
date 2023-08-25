@@ -37,8 +37,9 @@
                     <input type="email" name="email" required value="{{$setRecord->email}}" class="form-control" placeholder="Enter Email Here: ">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
                     
+                    <label for="exampleInputPassword1">Password</label>
+
                     <input type="password" name="pasword" class="form-control" placeholder="Enter Password Here: ">
                   </div>
               
