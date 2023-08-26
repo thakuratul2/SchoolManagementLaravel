@@ -34,6 +34,7 @@
                   </div>
                   <div class="form-group">
                     <label >Enter Email</label>
+                    
                     <input type="email" name="email" required value="{{$setRecord->email}}" class="form-control" placeholder="Enter Email Here: ">
                   </div>
                   <div class="form-group">
