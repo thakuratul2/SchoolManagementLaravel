@@ -30,6 +30,7 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label >Enter Name</label>
+                    
                     <input type="text" name="name" required value="{{$setRecord->name}}" class="form-control" placeholder="Enter Name Here: ">
                   </div>
                   <div class="form-group">
