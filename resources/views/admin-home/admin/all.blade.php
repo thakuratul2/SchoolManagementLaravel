@@ -41,7 +41,7 @@
                       <div class="form-group col-md-3">
                         <label >Enter Name</label>
                         
-                        <input type="text" name="name" required value="{{ Request::get('name') }}" class="form-control" placeholder="Enter Name Here: ">
+                        <input type="text" name="name" required value="{{Request::get('name')}}" class="form-control" placeholder="Enter Name Here: ">
                       </div>
                       <div class="form-group col-md-3">
                         <label >Enter Email</label>
