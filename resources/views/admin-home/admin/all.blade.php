@@ -46,11 +46,13 @@
                       <div class="form-group col-md-3">
                         <label >Enter Email</label>
                         
-                        <input type="email" name="email" required value="{{ Request::get('email') }}" class="form-control" placeholder="Enter Email Here: ">
+                        <input type="email" name="email" required value="" class="form-control" placeholder="Enter Email Here: ">
                       </div>
                       <div class="form-group col-md-3">
                         
                         <button class="btn btn-primary" type="submit" style="margin-top: 30px;">Search</button>
+                        <button class="btn btn-success" type="submit" style="margin-top: 30px;">Clear</button>
+
                       </div>
                       
                     </div>
