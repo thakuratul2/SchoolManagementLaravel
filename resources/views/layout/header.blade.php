@@ -174,7 +174,7 @@
           </li>
           <li class="nav-item">
             <a href="{{url('admin-home/class/all')}}" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
+              <i class="nav-icon fa-solid fa-graduation-cap"></i>
               <p>Class</p>
             </a>
           </li>
