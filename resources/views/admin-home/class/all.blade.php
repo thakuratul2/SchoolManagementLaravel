@@ -89,12 +89,32 @@
                   </tr>
                   </thead>
                   <tbody>
-                  
+                  @foreach ($getRecord as $item)
+                      <tr>
+                        <td>
+                          {{$item->cid}}
+                        </td>
+                        <td>
+                          {{$item->name}}
+                        </td>
+                        <td>
+                          @if ($item->status == 0)
+                          Active
+                          @else
+                            Inactive
+                          @endif
+                        </td>
+                        <td>
+                          {{$item->created_by_name}}
+                        </td>
+                        <td>
+                          {{ date('d-m-Y H:i A', strtotime($item->created_by))}}
+                        </td>
+                      </tr>
+                  @endforeach
                   </tfoot>
                 </table>
-                <div style="padding: 10px; float: right;">
-
-                </div>
+                
               </div>
               <!-- /.card-body -->
             </div>

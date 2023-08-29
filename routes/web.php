@@ -45,6 +45,7 @@ Route::group(['middleware' => 'admin'], function(){
 
     Route::get('admin-home/class/all',[ClassController::class,'list']);
     Route::get('admin-home/class/new',[ClassController::class,'add']);
+    Route::post('admin-home/class/new',[ClassController::class,'insert']);
 });
 Route::group(['middleware' => 'teacher'], function(){
     Route::get('admin-home/teacher',[DashboardController::class,'dashboard']);
