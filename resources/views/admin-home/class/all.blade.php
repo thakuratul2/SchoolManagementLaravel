@@ -108,7 +108,14 @@
                           {{$item->created_by_name}}
                         </td>
                         <td>
-                          {{ date('d-m-Y H:i A', strtotime($item->created_by))}}
+                          {{ date('d-m-Y H:i A', strtotime($item->created_at))}}
+                        </td>
+                        <td>
+                          {{ date('d-m-Y H:i A', strtotime($item->updated_at))}}
+                        </td>
+                        <td>
+                          <a href="{{url('admin-home/class/edit/'. $item->cid)}}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
+                          <a href="{{url('admin-home/class/delete/'. $item->cid)}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                         </td>
                       </tr>
                   @endforeach

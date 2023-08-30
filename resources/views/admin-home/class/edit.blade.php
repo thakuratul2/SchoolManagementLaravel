@@ -10,7 +10,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Edit Admin</h1>
+            <h1>Edit Class</h1>
           </div>
           
         </div>
@@ -29,27 +29,23 @@
                 {{ csrf_field() }}
                 <div class="card-body">
                   <div class="form-group">
-                    <label >Enter Name</label>
+                    <label >Enter Class Name</label>
                     
-                    <input type="text" name="name" required value="{{$setRecord->name}}" class="form-control" placeholder="Enter Name Here: ">
+                    <input type="text" name="name" required value="{{$getRecord->name}}" class="form-control" placeholder="Enter Name Here: ">
                   </div>
                   <div class="form-group">
-                    <label >Enter Email</label>
-                    
-                    <input type="email" name="email" required value="{{$setRecord->email}}" class="form-control" placeholder="Enter Email Here: ">
-                  </div>
-                  <div class="form-group">
-                    
-                    <label for="exampleInputPassword1">Password</label>
-
-                    <input type="password" name="pasword" class="form-control" placeholder="Enter Password Here: ">
+                    <label >Status</label>
+                    <select class="form-control" name="status">
+                      <option {{($getRecord->status == 0) ? 'selected' : ''}} value="0">Active</option>
+                      <option {{($getRecord->status == 1) ? 'selected' : ''}} value="1">Inactive</option>
+                    </select>
                   </div>
               
                   
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Update Admin</button>
+                  <button type="submit" class="btn btn-primary">Update Class</button>
                 </div>
               </form>
             </div>
