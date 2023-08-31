@@ -8,4 +8,9 @@ use Illuminate\Http\Request;
 class SubjectController extends Controller
 {
     //
+
+    public function list(){
+
+        return view('admin-home.subject.all');
+    }
 }
