@@ -178,6 +178,12 @@
               <p>Class</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{url('admin-home/subject/all')}}" class="nav-link">
+              <i class="nav-icon fa-solid fa-book"></i>
+              <p>Subject</p>
+            </a>
+          </li>
           @elseif (Auth::user()->user_type == 2)
           <li class="nav-item menu-open">
             <a href="{{url('admin-home')}}" class="nav-link @if(Request::segment(2) == 'dashboard') active @endif">
