@@ -10,10 +10,10 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Class List </h1>
+            <h1>Subject List </h1>
           </div>
           <div class="col-sm-6" style="text-align: right;">
-            <a href="{{url('admin-home/class/new')}}" class="btn btn-primary">Add New Class</a>
+            <a href="{{url('admin-home/class/new')}}" class="btn btn-primary">Add New Subject</a>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -30,7 +30,7 @@
               
                <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Search Class List</h3>
+                  <h3 class="card-title">Search Subject List</h3>
                 </div>
                   <form method="get" action="">
                     
@@ -72,14 +72,14 @@
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Atul Management | Class List</h3>
+                <h3 class="card-title">Atul Management | Subject List</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>C_ID</th>
+                    <th>S_ID</th>
                     <th>Name</th>
                     <th>Status</th>
                     <th>Created By</th>
@@ -89,36 +89,13 @@
                   </tr>
                   </thead>
                   <tbody>
-                  @foreach ($getRecord as $item)
-                      <tr>
-                        <td>
-                          {{$item->cid}}
-                        </td>
-                        <td>
-                          {{$item->name}}
-                        </td>
-                        <td>
-                          @if ($item->status == 0)
-                          Active
-                          @else
-                            Inactive
-                          @endif
-                        </td>
-                        <td>
-                          {{$item->created_by_name}}
-                        </td>
-                        <td>
-                          {{ date('d-m-Y H:i A', strtotime($item->created_at))}}
-                        </td>
-                        <td>
-                          {{ date('d-m-Y H:i A', strtotime($item->updated_at))}}
-                        </td>
-                        <td>
+                  
+                        {{-- <td>
                           <a href="{{url('admin-home/class/edit/'. $item->cid)}}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
                           <a href="{{url('admin-home/class/delete/'. $item->cid)}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-                        </td>
-                      </tr>
-                  @endforeach
+                        </td> --}}
+                      {{-- </tr>
+                  @endforeach --}}
                   </tfoot>
                 </table>
                 
