@@ -13,7 +13,7 @@
             <h1>Subject List </h1>
           </div>
           <div class="col-sm-6" style="text-align: right;">
-            <a href="{{url('admin-home/class/new')}}" class="btn btn-primary">Add New Subject</a>
+            <a href="{{url('admin-home/subject/new')}}" class="btn btn-primary">Add New Subject</a>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -80,7 +80,8 @@
                   <thead>
                   <tr>
                     <th>S_ID</th>
-                    <th>Name</th>
+                    <th>Subject Name</th>
+                    <th>Type</th>
                     <th>Status</th>
                     <th>Created By</th>
                     <th>Created At</th>
@@ -89,13 +90,31 @@
                   </tr>
                   </thead>
                   <tbody>
+                  @foreach ($getRecord as $item)
+                      
+                  <tr>
+                    <td>{{$item->sid}}</td>
+                    <td>{{$item->name}}</td>
+                    <td>{{$item->type}}</td>
+                    <td>@if ($item->status == 0)
+                      Active
+                        @else
+                        Inactive
+                    @endif
+                  </td>
+                    <td>{{$item->created_by_name}}</td>
+                    
+                    <td>{{date('d-m-Y H:i A', strtotime($item->created_at))}}</td>
                   
-                        {{-- <td>
-                          <a href="{{url('admin-home/class/edit/'. $item->cid)}}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
-                          <a href="{{url('admin-home/class/delete/'. $item->cid)}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-                        </td> --}}
-                      {{-- </tr>
-                  @endforeach --}}
+                    <td>
+                      {{ date('d-m-Y H:i A', strtotime($item->updated_at))}}
+                    </td>
+                        <td>
+                          <a href="{{url('admin-home/subject/edit/'. $item->sid)}}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
+                          <a href="{{url('admin-home/subject/delete/'. $item->sid)}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                      </tr>
+                      @endforeach
                   </tfoot>
                 </table>
                 

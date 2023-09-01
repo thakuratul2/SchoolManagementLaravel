@@ -80,7 +80,7 @@
                   <thead>
                   <tr>
                     <th>C_ID</th>
-                    <th>Name</th>
+                    <th>Class Name</th>
                     <th>Status</th>
                     <th>Created By</th>
                     <th>Created At</th>
