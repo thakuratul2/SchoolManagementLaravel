@@ -20,4 +20,9 @@ class SubjectModel extends Model
 
         return $return;
     }
+
+    static public function getSingle($sid){
+
+        return self::find($sid);
+    }
 }

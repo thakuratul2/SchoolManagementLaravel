@@ -39,4 +39,43 @@ class SubjectController extends Controller
 
     }
 
+    public function edit($sid){
+
+
+        $data['getRecord'] = SubjectModel::getSingle($sid);
+
+        if(!empty($data['getRecord'])){
+            return view('admin-home.subject.edit',$data);
+        }else{
+            abort(404);
+        }
+
+        
+
+    }
+
+    public function update($sid, Request $req){
+
+        $save = SubjectModel::getSingle($sid);
+        $save->name = $req->name;
+        $save->type = $req->type;
+        $save->status = $req->status;
+
+        $save->save();
+
+        return redirect('admin-home/subject/all')->with('success','Subject Updated!!!');
+
+    }
+
+    public function delete($sid){
+
+        
+        $save = SubjectModel::getSingle($sid);
+        $save->is_delete = 1;
+
+        $save->save();
+
+        return redirect()->back()->with('error','Subject Deleted!!!');
+    }
+
 }
