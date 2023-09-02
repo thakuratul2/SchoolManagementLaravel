@@ -56,7 +56,8 @@ class ClassSubjectController extends Controller
             }
             
             return redirect('admin-home/assign/all')->with('success','Subject Successfully Assign to Class!!!');
-        }else{
+        }
+        else{
             return redirect()->back()->with('error','Something went wrong!!!');
         }
     }
@@ -70,11 +71,55 @@ class ClassSubjectController extends Controller
         return redirect()->back()->with('error','Assign Deleted!!!');
     }
 
-    public function edit(){
+    public function edit($csid){
 
-        $data['getClass'] = ClassModel::getClass();
+        $getRecord = ClassSubjectModel::getSingle($csid);
+        
+        if(!empty($getRecord)){
+
+            $data['getRecord'] = $getRecord;
+            $data['getAssignSubject'] = ClassSubjectModel::getAssignSubject($getRecord->class_id);
+
+            $data['getClass'] = ClassModel::getClass();
         $data['getSubject'] = SubjectModel::getSubject();
         return view('admin-home.assign.edit',$data);
+        }else{
+
+            abort(404);
+        }
+        
+    }
+
+    public function update(Request $req){
+        ClassSubjectModel::deleteSubject($req->class_id);
+        if(!empty($req->subject_id)){
+
+            foreach($req->subject_id as $subject_id)
+            {
+
+                $countAlready = ClassSubjectModel::countAlready($req->class_id,$subject_id);
+                
+                if(!empty($countAlready)){
+
+                    $countAlready->status = $req->status;
+                    $countAlready->save();
+                }else{
+                    $save = new ClassSubjectModel;
+                    $save->class_id = $req->class_id;
+                    $save->subject_id = $subject_id;
+                    $save->status = $req->status;
+                    $save->created_by = Auth::user()->id;
+    
+                    $save->save();
+                }
+
+
+                
+            }
+            
+        }
+        return redirect('admin-home/assign/all')->with('success','Update Successfully Subject Assign to Class!!!');
+
     }
 
 }

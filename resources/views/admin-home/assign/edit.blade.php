@@ -33,16 +33,26 @@
                     <select name="class_id" class="form-control" required>
                       <option value="">Select Class</option>
                       @foreach ($getClass as $item)
-                          <option value="{{$item->cid}}">{{$item->name}}</option>
+                          <option {{($getRecord->class_id == $item->cid) ? 'selected' : ''}} value="{{$item->cid}}">{{$item->name}}</option>
                       @endforeach
                     </select>
                   </div>
                   <div class="form-group">
                     <label >Subject Name</label>
                     @foreach ($getSubject as $subject)
+                    @php
+                        $checked = "";
+                    @endphp
+                    @foreach ($getAssignSubject as $subjectAssign)
+                        @if ($subjectAssign->subject_id == $subject->sid)
+                            @php
+                                $checked = 'checked';
+                            @endphp
+                        @endif
+                    @endforeach
                         <div>
                           <label style="font-weight: normal;">
-                            <input type="checkbox" value="{{$subject->sid}}" name="subject_id[]">
+                            <input {{$checked}} type="checkbox" value="{{$subject->sid}}" name="subject_id[]">
                             {{$subject->name}}
                           </label>
                         </div>
@@ -51,8 +61,8 @@
                   <div class="form-group">
                     <label >Status</label>
                     <select class="form-control" name="status">
-                      <option value="0">Active</option>
-                      <option value="1">Inactive</option>
+                      <option {{($getRecord->status == 0) ? 'selected' : ''}} value="0">Active</option>
+                      <option {{($getRecord->status == 1) ? 'selected' : ''}} value="1">Inactive</option>
                     </select>
                   </div>
               
@@ -60,7 +70,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Update</button>
                 </div>
               </form>
             </div>

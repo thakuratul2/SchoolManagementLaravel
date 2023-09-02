@@ -186,7 +186,7 @@
           </li>
           <li class="nav-item">
             <a href="{{url('admin-home/assign/all')}}" class="nav-link">
-              <i class="nav-icon fa-solid fa-book"></i>
+              <i class="nav-icon fa-solid fa-clipboard"></i>
               <p>Assign Subject</p>
             </a>
           </li>
