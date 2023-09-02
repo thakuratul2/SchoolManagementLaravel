@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ClassController;
+use App\Http\Controllers\Admin\ClassSubjectController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
@@ -59,6 +60,14 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('admin-home/subject/edit/{id}',[SubjectController::class,'edit']);
     Route::post('admin-home/subject/edit/{id}',[SubjectController::class,'update']);
     Route::get('admin-home/subject/delete/{id}',[SubjectController::class,'delete']);
+
+    //Assign Controller
+    Route::get('admin-home/assign/all',[ClassSubjectController::class,'list']);
+    Route::get('admin-home/assign/new',[ClassSubjectController::class,'add']);
+    Route::post('admin-home/assign/new',[ClassSubjectController::class,'insert']);
+    Route::get('admin-home/assign/edit/{id}',[ClassSubjectController::class,'edit']);
+    Route::post('admin-home/assign/edit/{id}',[ClassSubjectController::class,'update']);
+    Route::get('admin-home/assign/delete/{id}',[ClassSubjectController::class,'delete']);
 });
 Route::group(['middleware' => 'teacher'], function(){
     Route::get('admin-home/teacher',[DashboardController::class,'dashboard']);

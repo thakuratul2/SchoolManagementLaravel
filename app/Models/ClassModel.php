@@ -22,4 +22,12 @@ class ClassModel extends Model
 
         return self::find($cid);
     }
+
+    static public function getClass(){
+
+        $return = ClassModel::select('table_class.*')->join('users','users.id','table_class.created_by')->where('table_class.is_deleted','=',0)->where('table_class.status','=',0)->orderBy('table_class.name','asc')->get();
+
+
+        return $return;
+    }
 }
