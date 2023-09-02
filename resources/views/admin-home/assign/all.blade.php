@@ -120,6 +120,8 @@
                         </td>
                         <td>
                           <a href="{{url('admin-home/assign/edit/'. $item->csid)}}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
+                          <a href="{{url('admin-home/assign/edit_single/'. $item->csid)}}" class="btn btn-primary"><i class="fa-solid fa-hand-point-up"></i></a>
+
                           <a href="{{url('admin-home/assign/delete/'. $item->csid)}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                         </td>
                       </tr>

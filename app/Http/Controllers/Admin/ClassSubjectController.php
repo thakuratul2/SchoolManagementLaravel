@@ -122,4 +122,42 @@ class ClassSubjectController extends Controller
 
     }
 
-}
+    public function edit_single($csid){
+        $getRecord = ClassSubjectModel::getSingle($csid);
+        
+        if(!empty($getRecord)){
+
+            $data['getRecord'] = $getRecord;
+            $data['getAssignSubject'] = ClassSubjectModel::getAssignSubject($getRecord->class_id);
+
+            $data['getClass'] = ClassModel::getClass();
+        $data['getSubject'] = SubjectModel::getSubject();
+        return view('admin-home.assign.edit_single',$data);
+        }else{
+
+            abort(404);
+        }
+    }
+
+    public function update_single($csid, Request $req){
+
+        $countAlreaady = ClassSubjectModel::countAlready($req->class_id, $req->subject_id);
+
+        if(!empty($countAlreaady)){
+
+            $countAlreaady->status = $req->status;
+            $countAlreaady->save();
+
+            return redirect('admin-home/assign/all')->with('success','Status Updated!!!');
+        }else{
+            $save = ClassSubjectModel::getSingle($csid);
+            $save->class_id = $req->class_id;
+            $save->subject_id = $req->subject_id;
+            $save->status = $req->satus;
+            $save->save();
+
+            return redirect('admin-home/assign/all')->with('success','Updated Successfully Subject Assign to Class');
+
+        }
+    }
+        }

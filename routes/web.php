@@ -68,6 +68,8 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('admin-home/assign/edit/{id}',[ClassSubjectController::class,'edit']);
     Route::post('admin-home/assign/edit/{id}',[ClassSubjectController::class,'update']);
     Route::get('admin-home/assign/delete/{id}',[ClassSubjectController::class,'delete']);
+    Route::get('admin-home/assign/edit_single/{id}',[ClassSubjectController::class,'edit_single']);
+    Route::post('admin-home/assign/edit_single/{id}',[ClassSubjectController::class,'update_single']);
 });
 Route::group(['middleware' => 'teacher'], function(){
     Route::get('admin-home/teacher',[DashboardController::class,'dashboard']);
