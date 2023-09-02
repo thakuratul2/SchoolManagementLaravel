@@ -70,4 +70,11 @@ class ClassSubjectController extends Controller
         return redirect()->back()->with('error','Assign Deleted!!!');
     }
 
+    public function edit(){
+
+        $data['getClass'] = ClassModel::getClass();
+        $data['getSubject'] = SubjectModel::getSubject();
+        return view('admin-home.assign.edit',$data);
+    }
+
 }
