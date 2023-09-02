@@ -80,15 +80,52 @@
                   <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
+                    <th>Class Name</th>
+                    <th>Subject Name</th>
+                    <th>Status</th>
+                    <th>Assigned By</th>
                     <th>Created At</th>
                     <th>Updated At</th>
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                  
+                  @foreach ($getRecord as $item)
+                      <tr>
+                        <td>
+                          {{$item->csid}}
+                        </td>
+                        <td>
+                          {{$item->class_name}}
+                        </td>
+                        <td>
+                          {{$item->subject_name}}
+                        </td>
+                        <td>
+                          @if ($item->status == 0)
+                          Active
+                              
+                          @else
+                              Inactive
+                          @endif
+                        </td>
+                        <td>
+                          {{$item->created_by_name}}
+                        </td>
+                        <td>
+                          {{date('d-m-Y H:i', strtotime($item->created_at))}}
+                        </td>
+                        <td>
+                          {{date('d-m-Y H:i', strtotime($item->updated_at))}}
+                        </td>
+                        <td>
+                          <a href="{{url('admin-home/assign/edit/'. $item->csid)}}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
+                          <a href="{{url('admin-home/assign/delete/'. $item->csid)}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                      </tr>
+                  @endforeach
+                  </tbody>
+                </table>
               </div>
               <!-- /.card-body -->
             </div>

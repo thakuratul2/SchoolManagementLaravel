@@ -6,6 +6,7 @@ use App\Models\ClassModel;
 use App\Models\ClassSubjectModel;
 
 use App\Http\Controllers\Controller;
+use Auth;
 use Illuminate\Http\Request;
 
 class ClassSubjectController extends Controller
@@ -26,4 +27,47 @@ class ClassSubjectController extends Controller
 
         return view('admin-home.assign.add-assign',$data);
     }
+
+    public function insert(Request $req){
+
+        if(!empty($req->subject_id)){
+
+            foreach($req->subject_id as $subject_id)
+            {
+
+                $countAlready = ClassSubjectModel::countAlready($req->class_id,$subject_id);
+                
+                if(!empty($countAlready)){
+
+                    $countAlready->status = $req->status;
+                    $countAlready->save();
+                }else{
+                    $save = new ClassSubjectModel;
+                    $save->class_id = $req->class_id;
+                    $save->subject_id = $subject_id;
+                    $save->status = $req->status;
+                    $save->created_by = Auth::user()->id;
+    
+                    $save->save();
+                }
+
+
+                
+            }
+            
+            return redirect('admin-home/assign/all')->with('success','Subject Successfully Assign to Class!!!');
+        }else{
+            return redirect()->back()->with('error','Something went wrong!!!');
+        }
+    }
+
+    public function delete($csid){
+        $save = ClassSubjectModel::getSingle($csid);
+        $save->is_delete = 1;
+
+        $save->save();
+
+        return redirect()->back()->with('error','Assign Deleted!!!');
+    }
+
 }
