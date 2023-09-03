@@ -70,16 +70,31 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('admin-home/assign/delete/{id}',[ClassSubjectController::class,'delete']);
     Route::get('admin-home/assign/edit_single/{id}',[ClassSubjectController::class,'edit_single']);
     Route::post('admin-home/assign/edit_single/{id}',[ClassSubjectController::class,'update_single']);
+
+    //Change Password Controller
+
+    Route::get('admin-home/change_password',[AuthController::class,'old_password']);
+    Route::post('admin-home/change_password',[AuthController::class,'update_password']);
 });
 Route::group(['middleware' => 'teacher'], function(){
     Route::get('admin-home/teacher',[DashboardController::class,'dashboard']);
+
+
+    Route::get('admin-home/change_password/password',[AuthController::class,'old_password']);
+    Route::post('admin-home/change_password/password',[AuthController::class,'update_password']);
     
 });
 Route::group(['middleware' => 'parent'], function(){
     Route::get('admin-home/parent',[DashboardController::class,'dashboard']);
+
+    Route::get('admin-home/change_password/password',[AuthController::class,'old_password']);
+    Route::post('admin-home/change_password/password',[AuthController::class,'update_password']);
     
 });
 Route::group(['middleware' => 'student'], function(){
     Route::get('admin-home/student',[DashboardController::class,'dashboard']);
+
+    Route::get('admin-home/change_password/password',[AuthController::class,'old_password']);
+    Route::post('admin-home/change_password/password',[AuthController::class,'update_password']);
     
 });

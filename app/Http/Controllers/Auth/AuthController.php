@@ -5,6 +5,7 @@ use App\Models\User;
 use Auth;
 
 use App\Http\Controllers\Controller;
+use Hash;
 use Illuminate\Http\Request;
 use App\Mail\ForgotPasswordMail;
 use Mail;
@@ -83,5 +84,26 @@ class AuthController extends Controller
 
         Auth::logout();
         return redirect(url(''));
+    }
+
+    public function old_password(){
+
+        return view('admin-home.change_password.password');
+    }
+
+    public function update_password(Request $req){
+
+        $user = User::getsingle(Auth::user()->id);
+
+        if(Hash::check($req->old_password, $user->password)){
+            $user->password = Hash::make($req->new_password);
+            $user->save();
+
+            return redirect()->back()->with('success','Password Changed!!!');
+
+        }else{
+            return redirect()->back()->with('error','Password not change!!!');
+        }
+
     }
 }
