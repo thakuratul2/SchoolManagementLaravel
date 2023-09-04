@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ClassController;
 use App\Http\Controllers\Admin\ClassSubjectController;
+use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
@@ -75,6 +76,12 @@ Route::group(['middleware' => 'admin'], function(){
 
     Route::get('admin-home/change_password',[AuthController::class,'old_password']);
     Route::post('admin-home/change_password',[AuthController::class,'update_password']);
+
+    //Student Section Controller
+    Route::get('admin-home/studentDetails/allStudent',[StudentController::class,'view']);
+    Route::get('admin-home/studentDetails/add',[StudentController::class,'add']);
+    Route::post('admin-home/studentDetails/add',[StudentController::class,'insert']);
+
 });
 Route::group(['middleware' => 'teacher'], function(){
     Route::get('admin-home/teacher',[DashboardController::class,'dashboard']);

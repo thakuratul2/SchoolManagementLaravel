@@ -173,25 +173,31 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="{{url('admin-home/class/all')}}" class="nav-link">
+            <a href="{{url('admin-home/student/all')}}" class="nav-link @if(Request::segment(2) == 'student') active @endif">
+              <i class="nav-icon fa-solid fa-graduation-cap"></i>
+              <p>Student Section</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url('admin-home/class/all')}}" class="nav-link @if(Request::segment(2) == 'class') active @endif">
               <i class="nav-icon fa-solid fa-graduation-cap"></i>
               <p>Class</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('admin-home/subject/all')}}" class="nav-link">
+            <a href="{{url('admin-home/subject/all')}}" class="nav-link @if(Request::segment(2) == 'subject') active @endif">
               <i class="nav-icon fa-solid fa-book"></i>
               <p>Subject</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('admin-home/assign/all')}}" class="nav-link">
+            <a href="{{url('admin-home/assign/all')}}" class="nav-link @if(Request::segment(2) == 'assign') active @endif">
               <i class="nav-icon fa-solid fa-clipboard"></i>
               <p>Assign Subject</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('admin-home/change_password')}}" class="nav-link">
+            <a href="{{url('admin-home/change_password')}}" class="nav-link @if(Request::segment(2) == 'change_password') active @endif">
               <i class="nav-icon fa-solid fa-lock-open"></i>
               <p>Change Password</p>
             </a>
