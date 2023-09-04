@@ -16,5 +16,11 @@ class StudentController extends Controller
 
     return view('admin-home.student_details.allStudent',$data);
     }
+
+
+    public function add(){
+
+        return view('admin-home.student_details.addStudent');
+    }
     
 }

@@ -173,7 +173,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="{{url('admin-home/student/all')}}" class="nav-link @if(Request::segment(2) == 'student') active @endif">
+            <a href="{{url('admin-home/studentDetails/allStudent')}}" class="nav-link @if(Request::segment(2) == 'student') active @endif">
               <i class="nav-icon fa-solid fa-graduation-cap"></i>
               <p>Student Section</p>
             </a>
