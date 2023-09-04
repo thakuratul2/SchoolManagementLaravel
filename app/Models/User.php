@@ -49,7 +49,7 @@ class User extends Authenticatable
     }
     static public function getAdmin(){
 
-        return self::select('users.*')->where('user_type','=','1')->where('is_deleted','=','0')->orderBy('id','desc')->paginate(2);
+        return self::select('users.*')->where('user_type','=','1')->where('is_deleted','=','0')->orderBy('id','asc')->paginate(20);
     }
 
     static public function getEmailSingle($email){
