@@ -55,6 +55,9 @@
 
                         <select name="class_id" class="form-control">
                             <option value="">Select Class</option>
+                            @foreach ($getClass as $value)
+                                <option value="{{$value->cid}}">{{$value->name}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group col-md-6">
@@ -104,7 +107,7 @@
                     
                         <label >Profile Pic <span style="color: red;">*</span></label>
 
-                        <input type="file" class="form-control" required value="{{old('profile_pic')}}" name="profile_pic">
+                        <input type="file" class="form-control" value="{{old('profile_pic')}}" name="profile_pic">
                     </div>
                     <div class="form-group col-md-6">
                     
