@@ -105,7 +105,9 @@
                     </div>
                     <div class="form-group col-md-6">
                     
-                        <label >Profile Pic <span style="color: red;">*</span></label>
+                        <label >Profile Pic <span style="color: red;">*</span>
+                          
+                        </label>
 
                         <input type="file" class="form-control" value="{{old('profile_pic')}}" name="profile_pic">
                     </div>
