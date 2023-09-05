@@ -25,7 +25,7 @@
           <div class="col-md-12">
            
               
-              <form method="POST" action="">
+              <form method="POST" action="" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="card-body">
                     <div class="row">
@@ -133,7 +133,7 @@
                     
                         <label >Status <span style="color: red;">*</span></label>
 
-                        <select name="gender" class="form-control">
+                        <select name="status" class="form-control">
                             <option value="">Select Status</option>
                             <option value="0">Active</option>
                             <option value="1">Inactive</option>

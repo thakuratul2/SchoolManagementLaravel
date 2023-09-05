@@ -80,6 +80,7 @@
                   <thead>
                   <tr>
                     <th>ID</th>
+                    <th>Student Pic</th>
                     <th>Name</th>
                     <th>Email</th>
                     
@@ -96,6 +97,9 @@
                           {{$item->id}}
                         </td>
                         <td>
+                          <img src="{{$item->profile_pic}}" alt="" style="width:25px; height: 30px;">
+                        </td>
+                        <td>
                           {{$item->name}}
                         </td>
                         <td>
@@ -108,10 +112,9 @@
                         </td>
                         
                         <td>
-                          <a href="{{url('admin-home/assign/edit/'. $item->csid)}}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
-                          <a href="{{url('admin-home/assign/edit_single/'. $item->csid)}}" class="btn btn-primary"><i class="fa-solid fa-hand-point-up"></i></a>
+                          <a href="{{url('admin-home/studentDetails/edit/'. $item->id)}}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
 
-                          <a href="{{url('admin-home/assign/delete/'. $item->csid)}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                          <a href="{{url('admin-home/studentDetails/delete/'. $item->id)}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                         </td>
                       </tr>
                   @endforeach
