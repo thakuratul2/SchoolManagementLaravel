@@ -30,6 +30,13 @@ class StudentController extends Controller
 
     public function insert(Request $req){
 
+
+        request()->validate([
+            'email' => 'required|email|unique:users',
+            'admission_number' => 'unique:users|min:100|max:500'
+        ]);
+
+
         $student = new User;
 
         $student->name = trim($req->name);
