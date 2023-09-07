@@ -87,5 +87,19 @@ class StudentController extends Controller
 
 
     }
+
+    public function edit($id){
+
+        $data['getRecord'] = User::getsingle($id);
+
+        if(!empty($data['getRecord'])){
+
+            $data['getClass'] = ClassModel::getClass();
+            return view('admin-home.student_details.editStudent',$data);
+        }else{
+            abort(404);
+        }
+        
+    }
     
 }
