@@ -59,7 +59,7 @@ class User extends Authenticatable
     }
 
     static public function getStudent(){
-        return self::select('users.*')->where('users.user_type','=',4)->where('users.is_deleted','=',0)->orderBy('users.id','asc')->paginate(20);
+        return self::select('users.*','table_class.name as class_name')->join('table_class', 'class_id','=','users.class_id','left')->where('users.user_type','=',4)->where('users.is_deleted','=',0)->orderBy('users.id','asc')->paginate(20);
 
     }
 

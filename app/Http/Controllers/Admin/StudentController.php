@@ -168,5 +168,20 @@ class StudentController extends Controller
             return redirect('admin-home/studentDetails/allStudent')->with('success','Student Profile Updated!!!');
 
     }
+
+    public function delete($id){
+
+        $getRecord = User::getsingle($id);
+
+        if(!empty($getRecord)){
+            $getRecord->is_deleted = 1;
+
+            $getRecord->save();
+
+            return redirect()->back()->with('error','Student Details Deleted!!!');
+        }else{
+            abort(404);
+        }
+    }
     
 }
