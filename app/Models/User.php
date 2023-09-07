@@ -62,4 +62,13 @@ class User extends Authenticatable
         return self::select('users.*')->where('users.user_type','=',4)->where('users.is_deleted','=',0)->orderBy('users.id','asc')->paginate(20);
 
     }
+
+    public function getProfile(){
+        if(!empty($this->profile_pic) && file_exists('upload/student_pic/'.$this->profile_pic)){
+
+            return url('upload/student_pic/', $this->profile_pic);
+        }else{
+            return "";
+        }
+    }
 }

@@ -158,6 +158,10 @@
 
                           {{$errors->first('profile_pic')}}
                         </div>
+                        @if (!empty($getRecord->getProfile()))
+                        <img src="{{$getRecord->getProfile()}}" style="width: 100px;">
+                            
+                        @endif
                     </div>
                     <div class="form-group col-md-6">
                     
@@ -218,7 +222,8 @@
                   </div>
                   <div class="form-group">
                     <label>Password <span style="color: red;">*</span></label>
-                    <input type="password" name="pasword" value="{{old('password', $getRecord->password)}}" required class="form-control" placeholder="Enter Password Here: ">
+                    <input type="password" name="pasword" class="form-control" placeholder="Enter Password Here: ">
+                    <p>Do you want to change password write here</p>
                     <div style="color: red;">
 
                       {{$errors->first('password')}}
@@ -229,7 +234,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Update</button>
                 </div>
               </form>
             </div>
