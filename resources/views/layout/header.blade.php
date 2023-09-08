@@ -174,8 +174,14 @@
           </li>
           <li class="nav-item">
             <a href="{{url('admin-home/studentDetails/allStudent')}}" class="nav-link @if(Request::segment(2) == 'studentDetails') active @endif">
-              <i class="nav-icon fa-solid fa-graduation-cap"></i>
+              <i class="nav-icon fa-solid fa-person"></i>
               <p>Student Section</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url('admin-home/parentDetails/allParent')}}" class="nav-link @if(Request::segment(2) == 'studentDetails') active @endif">
+              <i class="nav-icon fa-solid fa-user-group"></i>
+              <p>Parent Section</p>
             </a>
           </li>
           <li class="nav-item">

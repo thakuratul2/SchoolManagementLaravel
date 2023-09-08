@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ClassSubjectController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\ParentController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -84,6 +85,14 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('admin-home/studentDetails/edit/{id}',[StudentController::class,'edit']);
     Route::post('admin-home/studentDetails/edit/{id}',[StudentController::class,'update']);
     Route::get('admin-home/studentDetails/delete/{id}',[StudentController::class,'delete']);
+
+    //Parent Section Controller
+    Route::get('admin-home/parentDetails/allParent',[ParentController::class,'view']);
+    Route::get('admin-home/parentDetails/add',[ParentController::class,'add']);
+    Route::post('admin-home/parentDetails/add',[ParentController::class,'insert']);
+    Route::get('admin-home/parentDetails/edit/{id}',[ParentController::class,'edit']);
+    Route::post('admin-home/parentDetails/edit/{id}',[ParentController::class,'update']);
+    Route::get('admin-home/parentDetails/delete/{id}',[ParentController::class,'delete']);
 
 });
 Route::group(['middleware' => 'teacher'], function(){
