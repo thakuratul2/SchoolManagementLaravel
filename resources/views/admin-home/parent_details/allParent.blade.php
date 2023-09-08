@@ -10,10 +10,10 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Student List (Total : {{$getRecord->total()}})</h1>
+            <h1>Parent List </h1>
           </div>
           <div class="col-sm-6" style="text-align: right;">
-            <a href="{{url('admin-home/studentDetails/add')}}" class="btn btn-primary">Add Student</a>
+            <a href="{{url('admin-home/parentDetails/addParent')}}" class="btn btn-primary">Add Parent</a>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -30,7 +30,7 @@
               
                <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Search Student</h3>
+                  <h3 class="card-title">Search Parent</h3>
                 </div>
                   <form method="get" action="">
                     
@@ -72,30 +72,24 @@
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Atul Management | Student Details</h3>
+                <h3 class="card-title">Atul Management | Parent Details</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body col-12">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>ID</th>
-                    <th>Student Pic</th>
+                    <th>PID</th>
+                    <th>Parent Pic</th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
-                    <th>Admission Number</th>
-                    <th>Roll Number</th>
-                    <th>Class</th>
+                
                     <th>Gender</th>
-                    <th>DOB</th>
-                    <th>Caste</th>
-                    <th>Religion</th>
+                    
                     <th>Mobile Number</th>
-                    <th>Admission Date</th>
-                    <th>Blood Group</th>
-                    <th>Height</th>
-                    <th>Weight</th>
+                    <th>Occupation</th>
+                    <th>Address</th>
                     <th>Status</th>
                     <th>Created At</th>
                     <th>Updated At</th>
@@ -104,7 +98,21 @@
                   </tr>
                   </thead>
                   <tbody>
-                  @foreach ($getRecord as $item)
+                    @foreach ($getRecord as $item)
+                        <tr>
+                          <td>
+                            {{$item->id}}
+                          </td>
+
+                          <td>
+                            {{$item->name}}
+                          </td>
+                          <td>
+                            {{$item->last_name}}
+                          </td>
+                        </tr>
+                    @endforeach
+                  {{-- @foreach ($getRecord as $item)
                       <tr>
                         <td>
                           {{$item->id}}
@@ -183,7 +191,7 @@
                           <a href="{{url('admin-home/studentDetails/delete/'. $item->id)}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                         </td>
                       </tr>
-                  @endforeach
+                  @endforeach --}}
                   </tbody>
                 </table>
               </div>

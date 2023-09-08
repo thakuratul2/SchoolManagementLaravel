@@ -71,4 +71,11 @@ class User extends Authenticatable
             return "";
         }
     }
+
+    static public function getParent(){
+
+        $return = self::select('users.*')->where('user_type','=',3)->where('is_deleted','=',0)->orderBy('id','asc');
+
+        return $return;
+    }
 }

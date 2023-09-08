@@ -6,8 +6,8 @@ use App\Http\Controllers\Admin\ClassSubjectController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Auth\ParentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\ParentController;
 use Illuminate\Support\Facades\Route;
 
 /*
