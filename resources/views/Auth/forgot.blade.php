@@ -29,6 +29,7 @@
             <form action="" method="post">
               {{ csrf_field() }}
               <div class="input-group mb-3">
+                
                 <input type="email" class="form-control" required name="email" placeholder="Email">
                 <div class="input-group-append">
                   <div class="input-group-text">
