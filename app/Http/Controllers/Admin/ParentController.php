@@ -10,7 +10,7 @@ class ParentController extends Controller
 {
     //
     public function view(){
-        $data['getRecord'] = User::getParent();
+        $data['getParent'] = User::getParent();
 
         return view('admin-home.parent_details.allParent',$data);
     }

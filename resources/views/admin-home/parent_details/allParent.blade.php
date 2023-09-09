@@ -98,100 +98,53 @@
                   </tr>
                   </thead>
                   <tbody>
-                    @foreach ($getRecord as $item)
-                        <tr>
-                          <td>
-                            {{$item->id}}
-                          </td>
-
-                          <td>
-                            {{$item->name}}
-                          </td>
-                          <td>
-                            {{$item->last_name}}
-                          </td>
-                        </tr>
-                    @endforeach
-                  {{-- @foreach ($getRecord as $item)
+                    
+                  @foreach ($getParent as $value)
                       <tr>
                         <td>
-                          {{$item->id}}
+                          {{$value->id}}
+                        </td>
+                       
+                        <td>
+                          {{$value->name}}
                         </td>
                         <td>
-                          @if (!empty($item->getProfile()))
-                          <img src="{{$item->getProfile()}}" style="height: 50px; width: 50px; border-radius: 50px;">
-                              
-                          @endif
+                          {{$value->last_name}}
                         </td>
                         <td>
-                          {{$item->name}}
-                        </td>
-                        <td>
-                          {{$item->last_name}}
-                        </td>
-                        <td>
-                          {{$item->email}}
-                        </td>
-                        <td>
-                          {{$item->admission_number}}
-                        </td>
-                     <td>
-                      {{$item->roll_number}}
-                     </td>
-                     <td>
-                      {{$item->class_name}}
-                     </td>
-                     <td>
-                      {{$item->gender}}
-                     </td>
-
-                     <td>
-                      @if (!empty($item->date_of_birth))
-                          {{date('d-m-Y', strtotime($item->date_of_birth))}}
-                      @endif
-                     </td>
-                     <td>
-                      {{$item->caste}}
-                     </td>
-
-                     <td>
-                      {{$item->religion}}
-                     </td>
-                     <td>
-                      {{$item->mobile_number}}
-                     </td>
-                     <td>
-                      @if (!empty($item->admission_date))
-                      {{date('d-m-Y', strtotime($item->admission_date))}}
-                  @endif
-                     </td>
-                     <td>
-                      {{$item->blood_group}}
-                     </td>
-                     <td>
-                      {{$item->height}}
-                     </td>
-                     <td>
-                      {{$item->weight}}
-                     </td>
+                          {{$value->email}}
+                      
                      
                      <td>
-                      {{($item->status == 0)? 'Active' : 'Inactive'}}
+                      {{$value->gender}}
+                     </td>
+
+                     
+                     
+
+                    
+                     <td>
+                      {{$value->mobile_number}}
+                     </td>
+                     
+                    
+                     
+                      {{($value->status == 0)? 'Active' : 'Inactive'}}
                      </td>
                         
                         <td>
-                          {{date('d-m-Y H:i', strtotime($item->created_at))}}
+                          {{date('d-m-Y H:i', strtotime($value->created_at))}}
                         </td>
                         <td>
-                          {{date('d-m-Y H:i', strtotime($item->updated_at))}}
+                          {{date('d-m-Y H:i', strtotime($value->updated_at))}}
                         </td>
                         <td style="min-width: 150px;">
-                          <a href="{{url('admin-home/studentDetails/edit/'. $item->id)}}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
+                          <a href="{{url('admin-home/studentDetails/edit/'. $value->id)}}" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
 
-                          <a href="{{url('admin-home/studentDetails/delete/'. $item->id)}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                          <a href="{{url('admin-home/studentDetails/delete/'. $value->id)}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                         </td>
                       </tr>
-                  @endforeach --}}
+                  @endforeach
                   </tbody>
                 </table>
               </div>
