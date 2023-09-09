@@ -14,4 +14,9 @@ class ParentController extends Controller
 
         return view('admin-home.parent_details.allParent',$data);
     }
+
+    public function add(){
+
+        return view('admin-home.parent_details.addParent');
+    }
 }

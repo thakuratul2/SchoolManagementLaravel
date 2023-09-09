@@ -13,7 +13,7 @@
             <h1>Parent List </h1>
           </div>
           <div class="col-sm-6" style="text-align: right;">
-            <a href="{{url('admin-home/parentDetails/addParent')}}" class="btn btn-primary">Add Parent</a>
+            <a href="{{url('admin-home/parentDetails/add')}}" class="btn btn-primary">Add Parent</a>
           </div>
         </div>
       </div><!-- /.container-fluid -->
